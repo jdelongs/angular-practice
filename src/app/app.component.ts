@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoriteChangedArgs } from './favorite/favorite.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'hello-world';
+  tweet = {
+    body: 'This is supposed to be a tweet',
+    likesCount: 10,
+    isLiked: true
+  }
+  post = {
+    title: 'Title',
+    isFavorite: false
+  }
 }
