@@ -1,3 +1,4 @@
+import { PostService } from './services/post.service';
 import { SignupFormComponent } from './signup-form/signup-form/signup-form.component';
 
 import { CoursesComponent } from './courses.component';
@@ -42,6 +43,7 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule
   ],
   providers: [
+    PostService,
   ],
   bootstrap: [AppComponent],
 })
