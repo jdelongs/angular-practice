@@ -1,9 +1,11 @@
+import { FollowerService } from './services/follower.service';
+import { PostService } from './services/post.service';
 import { SignupFormComponent } from './signup-form/signup-form/signup-form.component';
 
 import { CoursesComponent } from './courses.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
@@ -17,6 +19,8 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { PostsComponent } from './posts/posts.component';
+import { AppErrorHandler } from './common/app-error-handler';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { PostsComponent } from './posts/posts.component';
     SignupFormComponent,
     NewCourseFormComponent,
     NewPasswordComponent,
-    PostsComponent
+    PostsComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,9 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule
   ],
   providers: [
+    PostService,
+    FollowerService,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent],
 })
